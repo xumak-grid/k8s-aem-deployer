@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aem-publish-dev
+  labels:
+    app: aem-publish-dev
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 4503
+  selector:
+    app: aem
+    runmode: publish
+    deployment: dev
+  type: LoadBalancer

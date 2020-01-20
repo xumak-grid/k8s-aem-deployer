@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: aem-author-dev
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels: 
+        app: aem
+        runmode: author
+        deployment: dev
+    spec:
+      containers:
+        - name: author
+          image: 
+          ports:
+            - containerPort: 4502
+              protocol: TCP

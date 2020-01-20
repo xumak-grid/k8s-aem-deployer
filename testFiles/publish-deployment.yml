@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: aem-publish-dev
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels: 
+        app: aem
+        runmode: publish
+        deployment: dev
+    spec:
+      containers:
+        - name: publish
+          image: 
+          env:
+            - name: CQ_RUNMODE
+              value: "publish,nosamplecontent"
+            - name: CQ_PORT
+              value: "4503"
+          ports:
+            - containerPort: 4503
+              protocol: TCP

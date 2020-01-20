@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name : service-deployer
+  labels:
+    app: service-deployer
+spec:
+  containers:
+    - name: service-deployer
+      image: 598240822331.dkr.ecr.us-east-1.amazonaws.com/grid/service-deployer
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 9090
+          protocol: TCP

@@ -1,0 +1,6 @@
+package: github.com/xumak-grid/k8s-aem-deployer
+import:
+- package: github.com/xumak-grid/go-grid
+  subpackages:
+  - pkg/client
+  - pkg/service-discovery
